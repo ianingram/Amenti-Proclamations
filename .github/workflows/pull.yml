@@ -1,0 +1,26 @@
+name: Pull proclamations (Federal Register)
+on:
+  workflow_dispatch:
+    inputs:
+      from_year: { description: "First year to pull", default: "1994" }
+  schedule:
+    - cron: "17 11 * * 1"   # Mondays: pick up new proclamations
+permissions:
+  contents: write
+concurrency: { group: pull, cancel-in-progress: false }
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull
+        run: python3 tools/pull_fr.py ${{ github.event.inputs.from_year || '1994' }}
+      - name: Commit
+        run: |
+          git config user.name "amenti-archive-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet && echo "nothing new" && exit 0
+          git commit -m "Proclamations: pull from the Federal Register ($(ls data/p | wc -l) on file)"
+          git push
