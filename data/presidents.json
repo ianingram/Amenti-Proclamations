@@ -1,0 +1,37 @@
+[
+ {
+  "id": "william-j-clinton",
+  "name": "William J. Clinton",
+  "count": 760,
+  "first": "1994-01-03",
+  "last": "2001-01-20"
+ },
+ {
+  "id": "george-w-bush",
+  "name": "George W. Bush",
+  "count": 940,
+  "first": "2001-02-01",
+  "last": "2009-01-20"
+ },
+ {
+  "id": "barack-obama",
+  "name": "Barack Obama",
+  "count": 1229,
+  "first": "2009-02-02",
+  "last": "2017-01-13"
+ },
+ {
+  "id": "donald-trump",
+  "name": "Donald Trump",
+  "count": 767,
+  "first": "2017-01-20",
+  "last": "2026-11-05"
+ },
+ {
+  "id": "joe-biden",
+  "name": "Joseph R. Biden Jr.",
+  "count": 745,
+  "first": "2021-01-20",
+  "last": "2025-01-17"
+ }
+]
